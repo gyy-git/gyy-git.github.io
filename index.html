@@ -174,7 +174,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/07/29/Pinia-%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Pinia 入门实战教程</a>
+          <a href="/2026/07/29/Pinia-%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Untitled</a>
         </h2>
 
         <div class="post-meta-container">
@@ -184,8 +184,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2026-07-29 15:33:12" itemprop="dateCreated datePublished" datetime="2026-07-29T15:33:12+08:00">2026-07-29</time>
+      <time title="Created: 2026-07-29 15:33:12 / Modified: 16:40:20" itemprop="dateCreated datePublished" datetime="2026-07-29T15:33:12+08:00">2026-07-29</time>
     </span>
 
   
@@ -198,7 +199,100 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          
+          <h1 id="Pinia-完全入门教程：Vue-新一代状态管理解决方案"><a href="#Pinia-完全入门教程：Vue-新一代状态管理解决方案" class="headerlink" title="Pinia 完全入门教程：Vue 新一代状态管理解决方案"></a>Pinia 完全入门教程：Vue 新一代状态管理解决方案</h1><p>发布时间：2026-07-29 | 栏目：Vue 工程实战 | 阅读时长：10分钟</p>
+<p>#Vue3#Pinia#状态管理#前端工程化</p>
+<hr>
+<h2 id="前言：为什么-Vue-官方抛弃了-Vuex？"><a href="#前言：为什么-Vue-官方抛弃了-Vuex？" class="headerlink" title="前言：为什么 Vue 官方抛弃了 Vuex？"></a>前言：为什么 Vue 官方抛弃了 Vuex？</h2><p>在 Vue2 时代，绝大多数项目的状态管理都依赖 <strong>Vuex</strong>。但在实际开发中，Vuex 存在大量让人诟病的设计冗余：繁琐的 <code>mutations</code> 强制同步写法、嵌套的 Module 模块、晦涩的辅助函数、TypeScript 类型体验极差。</p>
+<p>于是 Vue 团队推出了<strong>全新的状态管理库 Pinia</strong>，作为 Vuex 的替代方案，目前已是 Vue 官方推荐的首选状态管理工具。</p>
+<p>Pinia 去掉了 Vuex 中晦涩、冗余的概念，保留核心能力，同时极致优化 TS 类型体验、代码简洁度和模块化能力，真正做到<strong>开箱即用、极简高效</strong>。</p>
+<blockquote>
+<p><strong>核心结论</strong>：新项目直接用 Pinia，无需学习 Vuex；老项目可逐步平滑迁移 Pinia，语法无学习门槛。</p>
+</blockquote>
+<hr>
+<h2 id="一、Pinia-核心优势（对比-Vuex）"><a href="#一、Pinia-核心优势（对比-Vuex）" class="headerlink" title="一、Pinia 核心优势（对比 Vuex）"></a>一、Pinia 核心优势（对比 Vuex）</h2><p>为了让大家快速理解 Pinia 的革新点，我整理了和 Vuex 的核心差异，也是它能成为主流的核心原因：</p>
+<h3 id="1-1-极简-API，去除冗余概念"><a href="#1-1-极简-API，去除冗余概念" class="headerlink" title="1.1 极简 API，去除冗余概念"></a>1.1 极简 API，去除冗余概念</h3><p>Vuex 核心四件套：<code>state / getters / mutations / actions</code></p>
+<p>Pinia 核心三件套：<code>state / getters / actions</code></p>
+<p><strong>彻底删除了 mutations</strong>！Pinia 中支持直接修改 state 数据，也可以在 actions 中同步&#x2F;异步修改数据，告别强制同步的繁琐写法。</p>
+<h3 id="1-2-完美支持-TypeScript"><a href="#1-2-完美支持-TypeScript" class="headerlink" title="1.2 完美支持 TypeScript"></a>1.2 完美支持 TypeScript</h3><p>Pinia 源码基于 TS 编写，天然拥有完整的类型推导，无需手动标注复杂类型，组件使用 store 时自动提示、类型校验，杜绝类型报错。</p>
+<h3 id="1-3-扁平化模块化，无嵌套结构"><a href="#1-3-扁平化模块化，无嵌套结构" class="headerlink" title="1.3 扁平化模块化，无嵌套结构"></a>1.3 扁平化模块化，无嵌套结构</h3><p>Vuex 的 Module 是嵌套隔离，需要开启命名空间，取值调用极其繁琐；Pinia 每个 Store 都是独立模块，互不干扰，直接引入即可使用，结构清晰。</p>
+<h3 id="1-4-支持-Vue2-Vue3-双版本"><a href="#1-4-支持-Vue2-Vue3-双版本" class="headerlink" title="1.4 支持 Vue2 &#x2F; Vue3 双版本"></a>1.4 支持 Vue2 &#x2F; Vue3 双版本</h3><p>无论是 Vue2 老项目还是 Vue3 新项目，都可以无缝接入 Pinia，兼容性极强。</p>
+<hr>
+<h2 id="二、环境安装与初始化配置"><a href="#二、环境安装与初始化配置" class="headerlink" title="二、环境安装与初始化配置"></a>二、环境安装与初始化配置</h2><p>我们基于 Vite + Vue3 项目演示完整使用流程，步骤极简，零复杂配置。</p>
+<h3 id="2-1-安装-Pinia"><a href="#2-1-安装-Pinia" class="headerlink" title="2.1 安装 Pinia"></a>2.1 安装 Pinia</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># npm 安装</span></span><br><span class="line">npm install pinia</span><br><span class="line"></span><br><span class="line"><span class="comment"># yarn 安装</span></span><br><span class="line">yarn add pinia</span><br><span class="line"></span><br><span class="line"><span class="comment"># pnpm 推荐</span></span><br><span class="line">pnpm add pinia</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-全局挂载-Pinia"><a href="#2-2-全局挂载-Pinia" class="headerlink" title="2.2 全局挂载 Pinia"></a>2.2 全局挂载 Pinia</h3><p>在项目入口文件 <code>main.js</code>中创建 pinia 实例并全局注册：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&quot;./App.vue&quot;</span>;</span><br><span class="line"><span class="comment">// 引入 pinia 创建方法</span></span><br><span class="line"><span class="keyword">import</span> &#123; createPinia &#125; <span class="keyword">from</span> <span class="string">&quot;pinia&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建 pinia 实例</span></span><br><span class="line"><span class="keyword">const</span> pinia = <span class="title function_">createPinia</span>();</span><br><span class="line"></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">use</span>(pinia).<span class="title function_">mount</span>(<span class="string">&quot;#app&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>至此，Pinia 初始化完成，整个项目已经拥有全局状态管理能力。</p>
+<hr>
+<h2 id="三、第一个-Pinia-Store-实战编写"><a href="#三、第一个-Pinia-Store-实战编写" class="headerlink" title="三、第一个 Pinia Store 实战编写"></a>三、第一个 Pinia Store 实战编写</h2><p>Pinia 的核心设计：<strong>一个业务模块对应一个独立 Store</strong>。我们常规在 <code>src/stores/</code> 目录下统一管理所有状态模块。</p>
+<p>新建文件 <code>src/stores/user.js</code>，编写用户状态模块：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/stores/user.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; defineStore &#125; <span class="keyword">from</span> <span class="string">&quot;pinia&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 defineStore 定义仓库，唯一ID为 user</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> useUserStore = <span class="title function_">defineStore</span>(<span class="string">&quot;user&quot;</span>, &#123;</span><br><span class="line">  <span class="comment">// 1. 状态：存储全局数据</span></span><br><span class="line">  <span class="attr">state</span>: <span class="function">() =&gt;</span> (&#123;</span><br><span class="line">    <span class="attr">userName</span>: <span class="string">&quot;前端开发者&quot;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">24</span>,</span><br><span class="line">    <span class="attr">token</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">isLogin</span>: <span class="literal">false</span>,</span><br><span class="line">  &#125;),</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 计算属性：派生状态，缓存数据</span></span><br><span class="line">  <span class="attr">getters</span>: &#123;</span><br><span class="line">    <span class="comment">// 拼接用户信息</span></span><br><span class="line">    <span class="attr">userInfoText</span>: <span class="function">(<span class="params">state</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;state.userName&#125;</span> | <span class="subst">$&#123;state.age&#125;</span>岁`</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 方法：修改状态（同步+异步）</span></span><br><span class="line">  <span class="attr">actions</span>: &#123;</span><br><span class="line">    <span class="comment">// 同步修改用户名称</span></span><br><span class="line">    <span class="title function_">setUserName</span>(<span class="params">name</span>) &#123;</span><br><span class="line">      <span class="comment">// 直接修改 state，无需 mutations</span></span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">userName</span> = name;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 异步登录获取 token</span></span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">login</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="comment">// 模拟接口请求</span></span><br><span class="line">      <span class="keyword">const</span> res = <span class="keyword">await</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> <span class="title function_">resolve</span>(<span class="string">&quot;PINIA_TOKEN_2026&quot;</span>), <span class="number">800</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">token</span> = res;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">isLogin</span> = <span class="literal">true</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>这就是 Pinia 最标准的写法，结构清晰、语义明确，没有任何冗余代码。</p>
+<hr>
+<h2 id="四、组件中使用-Pinia-状态"><a href="#四、组件中使用-Pinia-状态" class="headerlink" title="四、组件中使用 Pinia 状态"></a>四、组件中使用 Pinia 状态</h2><p>我们在 Vue 组件中，读取 state、调用 getters、执行 actions，全方位演示使用方式。</p>
+<p>新建测试组件 <code>TestPinia.vue</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;pinia-demo&quot;&gt;</span><br><span class="line">    &lt;h3&gt;Pinia 状态实战演示&lt;/h3&gt;</span><br><span class="line">    &lt;p&gt;用户名：&#123;&#123; userStore.userName &#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;用户信息：&#123;&#123; userStore.userInfoText &#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;登录状态：&#123;&#123; userStore.isLogin ? &quot;已登录&quot; : &quot;未登录&quot; &#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;Token：&#123;&#123; userStore.token || &quot;暂无&quot; &#125;&#125;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">    &lt;button @click=&quot;changeName&quot;&gt;修改用户名&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;handleLogin&quot;&gt;异步登录&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">// 引入定义好的 user store</span><br><span class="line">import &#123; useUserStore &#125; from &quot;@/stores/user&quot;;</span><br><span class="line"></span><br><span class="line">// 实例化 store</span><br><span class="line">const userStore = useUserStore();</span><br><span class="line"></span><br><span class="line">// 同步修改数据</span><br><span class="line">const changeName = () =&gt; &#123;</span><br><span class="line">  userStore.setUserName(&quot;Pinia 学习者&quot;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 异步修改数据</span><br><span class="line">const handleLogin = () =&gt; &#123;</span><br><span class="line">  userStore.login();</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="核心特点说明"><a href="#核心特点说明" class="headerlink" title="核心特点说明"></a>核心特点说明</h3><ul>
+<li><p><strong>无需解构</strong>：直接实例化 store 即可使用所有状态和方法</p>
+</li>
+<li><p><strong>响应式原生支持</strong>：所有 state、getters 自带响应式</p>
+</li>
+<li><p><strong>无命名空间困扰</strong>：每个 store 独立作用域，互不冲突</p>
+</li>
+</ul>
+<hr>
+<h2 id="五、Pinia-进阶修改-State-的多种方式"><a href="#五、Pinia-进阶修改-State-的多种方式" class="headerlink" title="五、Pinia 进阶修改 State 的多种方式"></a>五、Pinia 进阶修改 State 的多种方式</h2><p>除了通过 actions 修改数据，Pinia 还支持多种灵活的 state 修改方案，适配不同业务场景。</p>
+<h3 id="5-1-组件直接修改（简单场景）"><a href="#5-1-组件直接修改（简单场景）" class="headerlink" title="5.1 组件直接修改（简单场景）"></a>5.1 组件直接修改（简单场景）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 直接赋值修改，Pinia 原生支持</span></span><br><span class="line">userStore.<span class="property">age</span> = <span class="number">25</span>;</span><br><span class="line">userStore.<span class="property">isLogin</span> = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-patch-批量修改（推荐，性能更好）"><a href="#5-2-patch-批量修改（推荐，性能更好）" class="headerlink" title="5.2 $patch 批量修改（推荐，性能更好）"></a>5.2 $patch 批量修改（推荐，性能更好）</h3><p>单次修改多个状态时，使用 <code>$patch</code> 可以减少视图更新次数，优化性能：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对象式批量修改</span></span><br><span class="line">userStore.$patch(&#123;</span><br><span class="line">  <span class="attr">userName</span>: <span class="string">&quot;批量修改用户&quot;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">26</span>,</span><br><span class="line">  <span class="attr">isLogin</span>: <span class="literal">true</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数式批量修改（支持复杂逻辑）</span></span><br><span class="line">userStore.$patch(<span class="function">(<span class="params">state</span>) =&gt;</span> &#123;</span><br><span class="line">  state.<span class="property">age</span> += <span class="number">1</span>;</span><br><span class="line">  state.<span class="property">userName</span> = <span class="string">&quot;函数式修改&quot;</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3-reset-重置状态"><a href="#5-3-reset-重置状态" class="headerlink" title="5.3 $reset 重置状态"></a>5.3 $reset 重置状态</h3><p>快速将 state 重置为初始值，常用于退出登录、页面重置场景：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一键重置所有 state 数据</span></span><br><span class="line">userStore.$reset();</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="六、Pinia-持久化存储（超实用插件）"><a href="#六、Pinia-持久化存储（超实用插件）" class="headerlink" title="六、Pinia 持久化存储（超实用插件）"></a>六、Pinia 持久化存储（超实用插件）</h2><p>业务开发中，我们经常需要<strong>刷新页面不丢失状态</strong>，比如 token、用户信息。推荐使用 <code>pinia-plugin-persistedstate</code> 持久化插件，零配置实现本地存储。</p>
+<h3 id="6-1-安装插件"><a href="#6-1-安装插件" class="headerlink" title="6.1 安装插件"></a>6.1 安装插件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add pinia-plugin-persistedstate</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-全局注册插件"><a href="#6-2-全局注册插件" class="headerlink" title="6.2 全局注册插件"></a>6.2 全局注册插件</h3><p>修改<code>main.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&quot;./App.vue&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; createPinia &#125; <span class="keyword">from</span> <span class="string">&quot;pinia&quot;</span>;</span><br><span class="line"><span class="comment">// 引入持久化插件</span></span><br><span class="line"><span class="keyword">import</span> piniaPluginPersistedstate <span class="keyword">from</span> <span class="string">&quot;pinia-plugin-persistedstate&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> pinia = <span class="title function_">createPinia</span>();</span><br><span class="line"><span class="comment">// 注册插件</span></span><br><span class="line">pinia.<span class="title function_">use</span>(piniaPluginPersistedstate);</span><br><span class="line"></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">use</span>(pinia).<span class="title function_">mount</span>(<span class="string">&quot;#app&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-3-开启模块持久化"><a href="#6-3-开启模块持久化" class="headerlink" title="6.3 开启模块持久化"></a>6.3 开启模块持久化</h3><p>只需在对应 store 中添加一行配置，即可自动持久化：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> useUserStore = <span class="title function_">defineStore</span>(<span class="string">&quot;user&quot;</span>, &#123;</span><br><span class="line">  <span class="attr">state</span>: <span class="function">() =&gt;</span> (&#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">  &#125;),</span><br><span class="line">  <span class="attr">getters</span>: &#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">actions</span>: &#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 开启持久化</span></span><br><span class="line">  <span class="attr">persist</span>: <span class="literal">true</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>开启后，该模块所有 state 数据会自动存入 localStorage，刷新页面不丢失，无需手动封装存储方法。</p>
+<hr>
+<h2 id="七、Pinia-核心知识点总结"><a href="#七、Pinia-核心知识点总结" class="headerlink" title="七、Pinia 核心知识点总结"></a>七、Pinia 核心知识点总结</h2><h3 id="7-1-核心语法记忆口诀"><a href="#7-1-核心语法记忆口诀" class="headerlink" title="7.1 核心语法记忆口诀"></a>7.1 核心语法记忆口诀</h3><ul>
+<li><p><strong>state</strong>：存放全局可变状态，函数返回对象，保证数据隔离</p>
+</li>
+<li><p><strong>getters</strong>：状态计算属性，缓存派生数据，只读不修改</p>
+</li>
+<li><p><strong>actions</strong>：业务方法，支持同步&#x2F;异步，统一修改状态</p>
+</li>
+<li><p><strong>无 mutations</strong>：告别繁琐同步写法，简化开发</p>
+</li>
+</ul>
+<h3 id="7-2-最佳实践规范"><a href="#7-2-最佳实践规范" class="headerlink" title="7.2 最佳实践规范"></a>7.2 最佳实践规范</h3><ol>
+<li><p>按业务模块拆分 Store（user、cart、order 独立文件）</p>
+</li>
+<li><p>简单数据直接修改，复杂逻辑统一封装在 actions</p>
+</li>
+<li><p>多数据更新优先使用<code>$patch</code> 批量修改</p>
+</li>
+<li><p>需要页面刷新保留数据，开启 persist 持久化</p>
+</li>
+</ol>
+<hr>
+<h2 id="八、写在最后"><a href="#八、写在最后" class="headerlink" title="八、写在最后"></a>八、写在最后</h2><p>Pinia 作为 Vue 官方新一代状态管理方案，<strong>简洁、高效、类型友好</strong>，完全替代 Vuex 是前端行业的必然趋势。</p>
+<p>对于开发者而言，不需要再记忆 Vuex 复杂的执行流程和语法规范，只需要掌握 state、getters、actions 三个核心概念，就能搞定所有全局状态管理场景，极大提升开发效率。</p>
+<p>后续复杂项目、跨组件通信、全局数据托管，直接无脑使用 Pinia 即可。</p>
+<blockquote>
+<p>（注：部分内容可能由 AI 生成）</p>
+</blockquote>
+
       
     </div>
 
